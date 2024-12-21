@@ -1,0 +1,31 @@
+ALGORITHM Analyze_semtence
+
+var
+sentence : String; //array of characters
+length, words, vowels : integer; //counters
+
+begin
+   //prompte the user to get a sentence that finishes with a full stop
+   Write('Please enter a sentence that finishes with a full stop: ');
+   Read(sentence);
+   //counting the number of characters in the sentence and storing it in a variable "length" starting from 1
+   length:=1;
+   //counting the number of words in the sentence and storing it in a variable "words" starting from 1
+   words:=1;
+   //counting the number of vowels in the sentence and storing it in a variable "vowels" starting from 0
+   vowels:=0;
+   while (sentence[length-1]!='.') Do
+    length:=length+1;
+    if (sentence[length-1]==' ' && sentence[length]!='.') Then //in case there is a space before the full stop, ith won't count it as a word
+        words:=words+1;
+        Else
+           if (sentence[length-1]=='a' OR sentence[length-1]=='A' OR sentence[length-1]=='e' OR sentence[length-1]=='E' OR sentence[length-1]=='i' OR sentence[length-1]=='I' OR sentence[length-1]=='o' OR sentence[length-1]=='O' OR sentence[length-1]=='u' ORsentence[length-1]=='U') Then
+           words:=words+1;
+           EndIf
+    EndIf
+   EndWhile
+
+   //display the results
+   write('The length of the sentence is: ', length, '\n')
+   write('The number of words in the sentence is: ', words, '\n')
+   write('The number of vowels in the sentence is: ', vowels, '\n')
